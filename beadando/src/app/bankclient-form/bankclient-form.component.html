@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-6" id="containerDiv">
+        <form [formGroup]="bankclientForm">
+            <div class="form-group mb-4">
+                <label for="nev">Név</label>
+                <input formControlName="name" type="text" class="form-control" id="name"  placeholder="Név Helye">
+                <div class="text-danger">
+                    <small *ngIf="f['name'].errors">Adjon meg megfelelő nevet!</small>
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="szuletesihely">Születési dátum</label>
+                <input type="date" class="form-control" id="location" formControlName="location">
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="telefonszam">Telefonszám</label>
+                <input type="text" class="form-control" id="telefonszam" formControlName="phoneNumber" placeholder="06201234567" maxlength="11" minlength="11">
+                <div class="text-danger">
+                    <small *ngIf="f['phoneNumber'].errors">Adjon meg megfelelő számot!</small>
+                </div>
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="accountnumber">Számlaszám</label>
+                <input type="text" class="form-control" id="accountnumber" formControlName="accountnumber" placeholder="123456" maxlength="6" minlength="6">
+                <div class="text-danger">
+                    <small *ngIf="f['accountnumber'].errors">Adjon meg megfelelő számot!</small>
+                </div>
+            </div>
+
+
+
+
+            <button class="btn btn-primary" (click)="createBankclient()">
+                Mentés
+            </button>
+        </form>
+    </div>
+</div>

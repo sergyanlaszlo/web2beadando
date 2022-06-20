@@ -1,0 +1,40 @@
+<div class="containter">
+    <div class="row">
+        <div class="col-md-7">
+            <input type="text" class="form-control" [(ngModel)]="searchQuery" placeholder="Ügyfél keresése">
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" (click)="search()">Keresés</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Azonosító</th>
+                        <th scope="col">Név</th>
+                        <th scope="col">Szuletési dátum</th>
+                        <th scope="col">Bankszámlaszám</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bankclient of bankclients">
+                        <td>{{bankclient.id}}</td>
+                        <td>{{bankclient.name}}</td>
+                        <td>{{bankclient.location}}</td>
+                        <td>{{bankclient.accountnumber}}</td>
+
+                        <td><button class="btn btn-primary"
+                                (click)="navigateToBankclientForm(bankclient.id)">Szerkesztés</button></td>
+                        <td><button class="btn btn-danger"
+                                (click)="deleteBankclient(bankclient.id)">Törlés</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button class="btn btn-success" (click)="navigateToBankclientForm()">Új banki ügyfél</button>
+        </div>
+    </div>
+</div>
